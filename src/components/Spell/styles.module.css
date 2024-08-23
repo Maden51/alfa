@@ -1,0 +1,46 @@
+.content {
+  border: 5px solid rgb(149, 162, 159);
+  border-radius: 10px;
+  padding: 1.5rem 1.25rem;
+  position: relative;
+  display: grid;
+  place-items: center;
+  transition: all 0.3s linear;
+}
+
+.content:hover {
+  border-color: blue;
+  transition: all 0.3s linear;
+}
+
+.content:hover .title {
+  color: blue;
+  transition: all 0.3s linear;
+}
+
+.control {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.liked, .unliked, .delete {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.liked:hover, .delete:hover, .unliked:hover {
+  scale: 1.2;
+  transition: all 0.2s linear; 
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:active {
+  color: black;
+}

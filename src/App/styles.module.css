@@ -1,0 +1,14 @@
+.content {
+  padding-top: 5rem;
+  background: linear-gradient(90deg, rgba(152,113,67,1) 0%, rgba(255,228,196,1) 50%, rgba(152,113,67,1) 100%);
+  text-align: center;
+}
+
+.backGround {
+  background: rgb(2,0,36);
+  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,43,121,1) 50%, rgba(0,241,255,1) 100%);
+}
+
+.title {
+  font-weight: 700;
+}
