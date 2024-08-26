@@ -8,18 +8,18 @@ import WorkProps from '../../redux/services/bookApi/types';
 function SpellList() {
   const { data, error, isLoading } = useGetSpellsQuery('');
   const [settledData, setSettledData] = useState<WorkProps[]>([]);
-  const [filteredData, setFilteredData] = useState<WorkProps[]>([]);
   const [likedFilter, setLikedFilter] = useState(false);
 
   const deleteFunction = (id: string) => {
     setSettledData(settledData.filter((spell) => spell.id !== id));
   };
 
-  const handleLikedFilter = () => {
-    setLikedFilter(!likedFilter);
-    if (likedFilter) {
-      setFilteredData(settledData.filter((spell) => spell.like === true));
-    }
+  const toogleLike = (id: string) => {
+    setSettledData((prevData) =>
+      prevData.map((product) =>
+        product.id === id ? { ...product, liked: !product.liked } : product,
+      ),
+    );
   };
 
   useEffect(() => {
@@ -27,6 +27,8 @@ function SpellList() {
       setSettledData(data);
     }
   }, [data]);
+
+  const filteredSpells = likedFilter ? settledData.filter((spell) => spell.liked) : settledData;
 
   return (
     <>
@@ -42,7 +44,7 @@ function SpellList() {
               }
             : undefined
         }
-        onClick={handleLikedFilter}
+        onClick={() => setLikedFilter(!likedFilter)}
       />
       <div className={styles.content}>
         {isLoading ? (
@@ -57,9 +59,9 @@ function SpellList() {
         ) : error ? (
           <div>Something bad happened, pls refresh the page or contact support</div>
         ) : data ? (
-          settledData.map((spell: WorkProps) => {
-            return <Spell onDelete={deleteFunction} key={spell.id} {...spell} />;
-          })
+          filteredSpells.map((spell) => (
+            <Spell key={spell.id} {...spell} toggleLike={toogleLike} onDelete={deleteFunction} />
+          ))
         ) : null}
       </div>
     </>

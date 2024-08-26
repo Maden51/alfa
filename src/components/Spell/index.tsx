@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import WorkProps from '../../redux/services/bookApi/types';
 import styles from './styles.module.css';
 import { Link } from 'react-router-dom';
 
 function Spell(props: WorkProps) {
-  const [liked, setLiked] = useState(props.like);
-
   const handleLike = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    if (liked === false) {
-      setLiked(true);
-    } else setLiked(false);
+    props.toggleLike(props.id);
   };
 
   const handleDelete = (e: { preventDefault: () => void }) => {
@@ -22,13 +18,13 @@ function Spell(props: WorkProps) {
     <Link to={`/spells/${props.id}`} className={styles.content}>
       <h1 className={styles.title}>{props.name}</h1>
       <div className={styles.control}>
-        <button className={liked ? styles.liked : styles.unliked} onClick={handleLike}>
+        <button className={props.liked ? styles.liked : styles.unliked} onClick={handleLike}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
             viewBox="0 0 24 24"
-            fill={liked ? 'red' : 'none'}
+            fill={props.liked ? 'red' : 'none'}
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"

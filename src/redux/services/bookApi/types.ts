@@ -6,7 +6,8 @@ export default interface WorkProps {
   canBeVerbal: true;
   type: string;
   light: string;
-  like: boolean;
+  liked: boolean;
   creator: string | null;
   onDelete: (id: string) => void;
+  toggleLike: (id: string) => void;
 };
