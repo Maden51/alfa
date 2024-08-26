@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './styles.module.css';
 import { Link, useParams } from 'react-router-dom';
 import { useGetSpellQuery } from '../../redux/services/bookApi/book';

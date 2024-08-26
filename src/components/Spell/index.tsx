@@ -1,4 +1,3 @@
-import React from 'react';
 import WorkProps from '../../redux/services/bookApi/types';
 import styles from './styles.module.css';
 import { Link } from 'react-router-dom';

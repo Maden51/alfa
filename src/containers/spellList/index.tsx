@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 import { useGetSpellsQuery } from '../../redux/services/bookApi/book';
 import { ColorRing } from 'react-loader-spinner';
