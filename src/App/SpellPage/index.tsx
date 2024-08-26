@@ -24,7 +24,7 @@ function SpellPage() {
       }}></TailSpin>
   ) : error ? (
     <div className={styles.error}>
-      <Link to={'/alfa'}>No such page, pls go back to the start.</Link>
+      <Link to={'/'}>No such page, pls go back to the start.</Link>
     </div>
   ) : data ? (
     <div className={styles.backGround}>
@@ -48,7 +48,7 @@ function SpellPage() {
               </li>
             </ul>
           </div>
-          <Link to={'/alfa'} className={styles.link}>
+          <Link to={'/'} className={styles.link}>
             Go back to spells
           </Link>
         </main>
