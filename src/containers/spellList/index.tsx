@@ -48,14 +48,16 @@ function SpellList() {
       />
       <div className={styles.content}>
         {isLoading ? (
-          <ColorRing
-            visible={true}
-            height="80"
-            width="80"
-            ariaLabel="color-ring-loading"
-            wrapperClass="color-ring-wrapper"
-            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
-          />
+          <div style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
+            <ColorRing
+              visible={true}
+              height="80"
+              width="80"
+              ariaLabel="color-ring-loading"
+              wrapperClass="color-ring-wrapper"
+              colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+            />
+          </div>
         ) : error ? (
           <div>Something bad happened, pls refresh the page or contact support</div>
         ) : data ? (
