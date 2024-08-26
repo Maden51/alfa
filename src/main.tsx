@@ -9,7 +9,7 @@ import SpellPage from './App/SpellPage/index.tsx';
 
 const router = createBrowserRouter([
   {
-    path: '/alfa',
+    path: '/',
     element: <App />,
   },
   {
